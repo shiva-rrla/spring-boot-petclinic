@@ -33,5 +33,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<scm>
+		<developerConnection>scm:git:https://github.com/shiva-rrla/spring-boot-petclinic.git</developerConnection>
+	</scm>
 
 </project>
