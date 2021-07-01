@@ -1,5 +1,6 @@
 package com.corenttech.petclinic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -20,10 +21,15 @@ import lombok.Singular;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Vet extends Person {  
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Builder
+	public Vet(String firstName,String lastName) {
+		super(firstName, lastName);
+		this.specialities = new HashSet<>();
+	}
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "vet_specialities",joinColumns = @JoinColumn(name = "vet_id"),inverseJoinColumns = @JoinColumn(name = "speciality_id"))
